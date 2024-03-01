@@ -1,0 +1,61 @@
+C51 COMPILER V9.60.0.0   ADC0808                                                           10/09/2023 23:19:20 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE ADC0808
+OBJECT MODULE PLACED IN .\Objects\ADC0808.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\Lib\ADC0808.c OMF2 OPTIMIZE(8,SPEED) BROWSE DEBUG PRINT(.\Listings\AD
+                    -C0808.lst) TABS(2) OBJECT(.\Objects\ADC0808.obj)
+
+line level    source
+
+   1          #include "main.h"
+   2          #include "port.h"
+   3          #include "../Lib/ADC0808.h"
+   4          
+   5          void ADC_Init()
+   6          {
+   7   1        ADC0808_START = 0;
+   8   1        ADC0808_ALE = 0;
+   9   1        ADC0808_OE = 0;
+  10   1      }
+  11          
+  12          unsigned char ADC0808_Read(unsigned char channel){
+  13   1        unsigned char kq;
+  14   1        ADC0808_ADDA = channel & 0x01;    
+  15   1        ADC0808_ADDB = channel & 0x02;
+  16   1        ADC0808_ADDC = channel & 0x04;
+  17   1        
+  18   1        ADC0808_ALE = 1;      //Giao tiep
+  19   1        ADC0808_START = 1;    //Bat dau chuyen doi
+  20   1        ADC0808_ALE = 0;      //
+  21   1        ADC0808_START = 0;
+  22   1        
+  23   1        
+  24   1        while(ADC0808_EOC);   //cho chuyen doi 
+  25   1        while(ADC0808_EOC == 0); //ket thuc chuyen doi
+  26   1        
+  27   1        ADC0808_OE = 1;   //doc du lieu vao port
+  28   1        kq = ADC0808_DATA ;
+  29   1        ADC0808_OE = 0; 
+  30   1        
+  31   1        return kq;
+  32   1        
+  33   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     41    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

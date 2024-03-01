@@ -1,0 +1,4 @@
+".\Objects\main.obj",
+".\Objects\Delay.obj" 
+TO ".\Objects\Ngat_ngoai" 
+PRINT(".\Listings\Ngat_ngoai.m51") RAMSIZE(256) 

@@ -1,0 +1,6 @@
+"main.obj",
+".\Delay.obj",
+".\LCD4.obj" 
+TO "ADC_Phan1" 
+
+ru 

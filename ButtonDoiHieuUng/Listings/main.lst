@@ -1,0 +1,69 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              09/12/2023 20:48:28 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "main.h"
+   2          #include "..\lib\delay.h"
+   3          
+   4          #include <REGX52.H>
+   5          
+   6          sbit BTN = P1^0;
+   7          #define LED P2
+   8          bit pressedFlag = 0;
+   9          
+  10          unsigned char DelayQuetPhim(){
+  11   1        unsigned  char i;
+  12   1        for(i = 0; i< 10;i++){
+  13   2          Delay(10);
+  14   2          if(BTN == 0){
+  15   3            if(pressedFlag == 0){
+  16   4              pressedFlag = 1;
+  17   4              return 1;
+  18   4            }
+  19   3            else pressedFlag = 1;
+  20   3          }
+  21   2        }
+  22   1        return 0;
+  23   1      }
+  24          void main(){
+  25   1        unsigned char i ;
+  26   1        while(1){
+  27   2          LED = 0x00;
+  28   2          for(i = 0; i < 20;i++){
+  29   3            if(DelayQuetPhim()) break;
+  30   3            LED = ~LED;
+  31   3          }
+  32   2          LED = 0x55;
+  33   2          for(i =0 ; i< 20 ;i++){
+  34   3            if(DelayQuetPhim()) break;
+  35   3            LED = ~LED ;
+  36   3          }
+  37   2          LED = 0x0f;
+  38   2          for(i = 0; i < 20 ; i++){
+  39   3            LED = ~LED;
+  40   3            if(DelayQuetPhim()) break;
+  41   3          }
+  42   2        }
+  43   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    130    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+C51 COMPILER V9.60.0.0   MAIN                                                              09/12/2023 20:48:28 PAGE 2   
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

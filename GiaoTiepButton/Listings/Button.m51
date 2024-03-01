@@ -1,0 +1,232 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    08/17/2023  20:03:59  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\Delay.obj TO .\Objects\Button PRINT (.\Listings\Button.m51) RA
+>> MSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\Delay.obj (DELAY)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\Button (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         _DATA_GROUP_
+            IDATA   000BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     005BH     UNIT         ?PR?CONRAN?MAIN
+            CODE    005EH     0025H     UNIT         ?PR?DELAYQUETPHIM?MAIN
+            CODE    0083H     0020H     UNIT         ?PR?_DELAY?DELAY
+            CODE    00A3H     0013H     UNIT         ?PR?NHAY?MAIN
+            CODE    00B6H     0013H     UNIT         ?PR?NHAYXENKE?MAIN
+            CODE    00C9H     0013H     UNIT         ?PR?MAIN?MAIN
+            CODE    00DCH     0012H     UNIT         ?PR?CONRAN2?MAIN
+            CODE    00EEH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Button (MAIN)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                  -----    -----
+  +--> ?PR?CONRAN?MAIN
+  +--> ?PR?NHAY?MAIN
+  +--> ?PR?NHAYXENKE?MAIN
+
+?PR?CONRAN?MAIN                0008H    0002H
+  +--> ?PR?DELAYQUETPHIM?MAIN
+
+?PR?DELAYQUETPHIM?MAIN         000AH    0001H
+  +--> ?PR?_DELAY?DELAY
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  08/17/2023  20:03:59  PAGE 2
+
+
+?PR?NHAY?MAIN                  0008H    0001H
+  +--> ?PR?DELAYQUETPHIM?MAIN
+
+?PR?NHAYXENKE?MAIN             0008H    0001H
+  +--> ?PR?DELAYQUETPHIM?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Button (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  C:0003H         PUBLIC        conran
+  B:0090H.0       PUBLIC        START
+  C:00C9H         PUBLIC        main
+  C:00A3H         PUBLIC        nhay
+  C:00DCH         PUBLIC        conran2
+  C:005EH         PUBLIC        DelayQuetphim
+  B:0090H.1       PUBLIC        STOP
+  C:00B6H         PUBLIC        nhayxenke
+  -------         PROC          DELAYQUETPHIM
+  -------         DO            
+  D:000AH         SYMBOL        i
+  -------         ENDDO         
+  C:005EH         LINE#         8
+  C:005EH         LINE#         9
+  C:005EH         LINE#         11
+  C:006CH         LINE#         12
+  C:006CH         LINE#         13
+  C:0073H         LINE#         15
+  C:0076H         LINE#         16
+  C:0076H         LINE#         17
+  C:0079H         LINE#         18
+  C:007CH         LINE#         19
+  C:007CH         LINE#         20
+  C:0080H         LINE#         21
+  C:0082H         LINE#         22
+  -------         ENDPROC       DELAYQUETPHIM
+  -------         PROC          NHAY
+  -------         DO            
+  D:0008H         SYMBOL        i
+  -------         ENDDO         
+  C:00A3H         LINE#         23
+  C:00A3H         LINE#         24
+  C:00A6H         LINE#         25
+  C:00A9H         LINE#         26
+  C:00A9H         LINE#         27
+  C:00ACH         LINE#         28
+  C:00B2H         LINE#         29
+  C:00B2H         LINE#         30
+  C:00B2H         LINE#         31
+  C:00B2H         LINE#         32
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  08/17/2023  20:03:59  PAGE 3
+
+
+  C:00B5H         LINE#         33
+  C:00B5H         LINE#         34
+  -------         ENDPROC       NHAY
+  -------         PROC          CONRAN
+  -------         DO            
+  D:0008H         SYMBOL        i
+  D:0009H         SYMBOL        n
+  -------         ENDDO         
+  C:0003H         LINE#         35
+  C:0003H         LINE#         36
+  C:0006H         LINE#         37
+  C:0009H         LINE#         38
+  C:0009H         LINE#         39
+  C:0009H         LINE#         40
+  C:000CH         LINE#         41
+  C:0019H         LINE#         42
+  C:0019H         LINE#         43
+  C:0028H         LINE#         44
+  C:002EH         LINE#         45
+  C:002EH         LINE#         46
+  C:002EH         LINE#         47
+  C:002EH         LINE#         48
+  C:0032H         LINE#         49
+  C:0040H         LINE#         50
+  C:0040H         LINE#         51
+  C:0050H         LINE#         52
+  C:0056H         LINE#         53
+  C:0056H         LINE#         54
+  C:0056H         LINE#         55
+  C:0056H         LINE#         56
+  C:005AH         LINE#         57
+  C:005DH         LINE#         58
+  C:005DH         LINE#         59
+  -------         ENDPROC       CONRAN
+  -------         PROC          NHAYXENKE
+  -------         DO            
+  D:0008H         SYMBOL        i
+  -------         ENDDO         
+  C:00B6H         LINE#         62
+  C:00B6H         LINE#         63
+  C:00B6H         LINE#         64
+  C:00B9H         LINE#         65
+  C:00BCH         LINE#         66
+  C:00BCH         LINE#         67
+  C:00BCH         LINE#         68
+  C:00BFH         LINE#         69
+  C:00C5H         LINE#         70
+  C:00C5H         LINE#         71
+  C:00C5H         LINE#         72
+  C:00C5H         LINE#         73
+  C:00C8H         LINE#         74
+  C:00C8H         LINE#         76
+  -------         ENDPROC       NHAYXENKE
+  -------         PROC          CONRAN2
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  08/17/2023  20:03:59  PAGE 4
+
+
+  C:00DCH         LINE#         77
+  C:00DCH         LINE#         78
+  C:00DCH         LINE#         80
+  C:00DFH         LINE#         81
+  C:00EAH         LINE#         82
+  C:00EAH         LINE#         84
+  C:00EDH         LINE#         85
+  -------         ENDPROC       CONRAN2
+  -------         PROC          MAIN
+  C:00C9H         LINE#         89
+  C:00C9H         LINE#         90
+  C:00CCH         LINE#         91
+  C:00CFH         LINE#         92
+  C:00CFH         LINE#         93
+  C:00CFH         LINE#         94
+  C:00D2H         LINE#         95
+  C:00D5H         LINE#         96
+  C:00D8H         LINE#         97
+  C:00DBH         LINE#         98
+  C:00DBH         LINE#         99
+  C:00DBH         LINE#         100
+  C:00DBH         LINE#         101
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0083H         PUBLIC        _Delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        t
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0083H         LINE#         4
+  C:0083H         LINE#         6
+  C:008DH         LINE#         7
+  C:0090H         LINE#         9
+  C:009BH         LINE#         10
+  C:00A2H         LINE#         11
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAY
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CONRAN2?MAIN
+
+Program Size: data=12.0 xdata=0 code=250
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

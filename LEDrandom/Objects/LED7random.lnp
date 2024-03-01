@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\LED7random" 
+PRINT(".\Listings\LED7random.m51") RAMSIZE(256) 

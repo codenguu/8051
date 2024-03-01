@@ -1,0 +1,1 @@
+"..\Lib\Keypress.c" OPTIMIZE (8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\Keypress.lst) TABS (2) OBJECT(.\Objects\Keypress.obj)

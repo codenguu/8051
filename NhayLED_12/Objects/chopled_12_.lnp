@@ -1,0 +1,4 @@
+".\Objects\main.obj",
+".\Objects\Delay.obj" 
+TO ".\Objects\chopled_12_" 
+PRINT(".\Listings\chopled_12_.m51") RAMSIZE(256) 

@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\main3.obj" 
+TO ".\Objects\Timer2_taoxungClock" 
+PRINT(".\Listings\Timer2_taoxungClock.m51") RAMSIZE(256) 

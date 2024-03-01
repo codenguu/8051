@@ -1,0 +1,91 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              09/14/2023 10:57:33 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "main.h"
+   2          #include "../lib/Delay.h"
+   3          
+   4          sbit GREEN =  P0^0; 
+   5          sbit YELLOW =  P0^1; 
+   6          sbit RED =  P0^2; 
+   7          
+   8          unsigned char code arrLED[]={0x3f, 0x6, 0x5b, 0x4f, 0x66, 0x6d,0x7d, 0x07, 0x7f, 0x6f };
+   9          
+  10          void DEN_GIAO_THONG1(){
+  11   1          unsigned char i;
+  12   1          unsigned char j;
+  13   1          YELLOW = 1;
+  14   1          
+  15   1          P2 = arrLED[3];//So 30 truoc
+  16   1          P3 = arrLED[0];
+  17   1          Delay(300);
+  18   1          
+  19   1          for(i = 2; i >= 0; i--){
+  20   2            for(j = 9 ; j >=0 ; j--){
+  21   3              if(j <=4 && i == 0 && GREEN == 0){
+  22   4                YELLOW = 0;
+  23   4              }
+  24   3              P3 = arrLED[j];
+  25   3              P2 = arrLED[i];
+  26   3              
+  27   3              Delay(300);
+  28   3              
+  29   3              if(j == 0)  break;
+  30   3            }
+  31   2            if(i == 0){
+  32   3              GREEN =!GREEN;
+  33   3              RED = !RED;
+  34   3              break;
+  35   3            }
+  36   2          }
+  37   1      }
+  38          void DEN_GIAO_THONG2(){
+  39   1        unsigned char i;
+  40   1          P2 = arrLED[3];
+  41   1          P3 = arrLED[0];
+  42   1        for(i = 30 ; i >= 0; i--){
+  43   2          if( i <= 3 && GREEN == 0) YELLOW = 0;
+  44   2          else YELLOW = 1;
+  45   2          P2 = arrLED[i/10];
+  46   2          P3 = arrLED[i%10];
+  47   2          Delay(300);
+  48   2          if(i == 0) {
+  49   3            RED = !RED;
+  50   3            GREEN = !GREEN;
+  51   3            break;
+  52   3          }
+  53   2        }
+  54   1        
+C51 COMPILER V9.60.0.0   MAIN                                                              09/14/2023 10:57:33 PAGE 2   
+
+  55   1      }
+  56          void main(){
+  57   1        //trang thai ban dau
+  58   1          GREEN = 0;
+  59   1          YELLOW = 1;
+  60   1          RED = 1;
+  61   1        while(1)
+  62   1        {
+  63   2          DEN_GIAO_THONG2();
+  64   2        }
+  65   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    204    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

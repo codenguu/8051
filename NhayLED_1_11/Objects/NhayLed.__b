@@ -1,0 +1,3 @@
+TRANSFER
+".\Objects\main.obj" 
+TO ".\Objects\NhayLed.LIB"

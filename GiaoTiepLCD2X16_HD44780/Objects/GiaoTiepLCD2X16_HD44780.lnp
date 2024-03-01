@@ -1,0 +1,5 @@
+".\Objects\main.obj",
+".\Objects\Delay.obj",
+".\Objects\LCD16x2_cmd.obj" 
+TO ".\Objects\GiaoTiepLCD2X16_HD44780" 
+PRINT(".\Listings\GiaoTiepLCD2X16_HD44780.m51") RAMSIZE(256) 

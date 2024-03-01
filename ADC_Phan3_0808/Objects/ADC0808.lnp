@@ -1,0 +1,7 @@
+".\Objects\main.obj",
+".\Objects\LCD16x2_cmd.obj",
+".\Objects\Delay.obj",
+".\Objects\ADC0808.obj" 
+TO ".\Objects\ADC0808" 
+
+PRINT(".\Listings\ADC0808.map")

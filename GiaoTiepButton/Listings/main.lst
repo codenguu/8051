@@ -1,0 +1,127 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              08/17/2023 20:03:58 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "main.h"
+   2          #include "..\Lib\Delay.h"
+   3          #include "port.h"
+   4          
+   5          
+   6          #define LED P2
+   7          
+   8          unsigned char DelayQuetphim()
+   9          {
+  10   1        unsigned char i;
+  11   1        for(i = 0; i < 10 ; i++)
+  12   1          {
+  13   2            Delay(10);
+  14   2            
+  15   2            if(STOP == 0)
+  16   2            {
+  17   3              LED = 0x00;
+  18   3              return 1;  //co nhan stop
+  19   3            }
+  20   2          }
+  21   1          return 0;      //khong nhan stop
+  22   1      }
+  23          void nhay(){
+  24   1        unsigned char i = 10;
+  25   1        LED = 0x00;
+  26   1        while(i){
+  27   2          LED = ~LED;
+  28   2          if(DelayQuetphim())
+  29   2          {
+  30   3            break;
+  31   3          }
+  32   2          i--;
+  33   2        }
+  34   1      }
+  35          void conran(){
+  36   1        unsigned char i , n = 5;
+  37   1        LED = 0x00;
+  38   1        while(n)
+  39   1        {
+  40   2          LED = 0x00;
+  41   2          for(i = 0 ; i < 8 ; i++)
+  42   2          {
+  43   3            LED |= (1 << i);
+  44   3            if(DelayQuetphim())
+  45   3            {
+  46   4              break;
+  47   4            }
+  48   3          }
+  49   2          for(i = 0; i < 8 ; i++)
+  50   2          {
+  51   3            LED &= ~(1 << i);
+  52   3            if(DelayQuetphim())
+  53   3            {
+  54   4              break;
+C51 COMPILER V9.60.0.0   MAIN                                                              08/17/2023 20:03:58 PAGE 2   
+
+  55   4            }
+  56   3          }
+  57   2          n--;
+  58   2        }
+  59   1      }
+  60          
+  61          
+  62          void nhayxenke()
+  63          {
+  64   1        unsigned char i = 10;
+  65   1        LED = 0XAA;
+  66   1        while(i)
+  67   1        {
+  68   2          LED = ~LED;
+  69   2          if(DelayQuetphim())
+  70   2            {
+  71   3              break;
+  72   3            }
+  73   2          i--;
+  74   2        }
+  75   1        
+  76   1      }
+  77          void conran2()
+  78          {
+  79   1        unsigned char i;
+  80   1        LED = 0x00;
+  81   1        for(i=0; i < 8;i++)
+  82   1        {
+  83   2          
+  84   2        }
+  85   1      }
+  86          
+  87          
+  88          
+  89          void main(){
+  90   1        LED = 0;
+  91   1        if(START == 0)
+  92   1        {
+  93   2          while(1){
+  94   3            conran();
+  95   3            nhay();
+  96   3            nhayxenke();
+  97   3            if(STOP==0)
+  98   3              break;
+  99   3          }
+ 100   2        }
+ 101   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    203    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

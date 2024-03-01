@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\GiaoTiepRelay" 
+PRINT(".\Listings\GiaoTiepRelay.m51") RAMSIZE(256) 

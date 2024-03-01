@@ -1,0 +1,4 @@
+".\Objects\main2.obj" 
+TO ".\Objects\phathienmatxung" 
+
+PRINT(".\Listings\phathienmatxung.map")

@@ -1,0 +1,56 @@
+C51 COMPILER V9.60.0.0   IE74595_OUT                                                       09/16/2023 23:06:49 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE IE74595_OUT
+OBJECT MODULE PLACED IN .\Objects\IE74595_OUT.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\Lib\IE74595_OUT.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\IE74595_OUT.lst) TABS(2) OBJECT(.\Objects\IE74595_OUT.obj)
+
+line level    source
+
+   1          //Mo rong ngo ra dung IC 74595 
+   2          //Tao file port.h nhu sau:
+   3          //sbit SH_CP = P2^0;
+   4          //sbit DS = P2^1;
+   5          //sbit ST_CP = P2^2;
+   6          
+   7          #include "main.h"
+   8          #include "port.h"
+   9          #include "../lib/IE74595_OUT.h"
+  10          
+  11          
+  12          
+  13          //Lay n byte trong vdk  
+  14          void IE74595_OUT(unsigned char *p,unsigned char n){
+  15   1        unsigned char i , j , b;
+  16   1        for(i = 0; i < n ; i++){
+  17   2          
+  18   2          b = *(p + n -i -1);//Lay byte  cuoi cung xep tu dau vao cuoi ic
+  19   2          for(j =0; j  < 8 ; j++){
+  20   3            
+  21   3            DS = b & (0x80 >> j);
+  22   3            
+  23   3            //tao xung dich du lieu
+  24   3            SH_CP = 0;
+  25   3            SH_CP = 1;
+  26   3            
+  27   3          }
+  28   2        }
+  29   1          //tao xung xuat du lieu
+  30   1          ST_CP = 0; 
+  31   1          ST_CP = 1; 
+  32   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    103    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

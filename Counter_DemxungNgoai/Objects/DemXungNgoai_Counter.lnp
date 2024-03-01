@@ -1,0 +1,4 @@
+".\Objects\main.obj",
+".\Objects\Delay.obj" 
+TO ".\Objects\DemXungNgoai_Counter" 
+PRINT(".\Listings\DemXungNgoai_Counter.m51") RAMSIZE(256) 

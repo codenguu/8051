@@ -1,0 +1,5 @@
+".\Objects\IE74595_OUT.obj",
+".\Objects\Delay.obj",
+".\Objects\main.obj" 
+TO ".\Objects\IC74595" 
+PRINT(".\Listings\IC74595.m51") RAMSIZE(256) 

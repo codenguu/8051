@@ -1,0 +1,66 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              09/28/2023 13:59:09 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "main.h"
+   2          #include "../Lib/Delay.h"
+   3          #include "port.h"
+   4          
+   5          
+   6          void main(){
+   7   1        unsigned char i;
+   8   1        
+   9   1        EX0 = 1; // cho phep ngat ngoai int0
+  10   1        
+  11   1        EA = 1;   //cho phep ngat toan cuc
+  12   1        
+  13   1        IT0 = 0;
+  14   1        
+  15   1        while(1){
+  16   2            
+  17   2            for(i = 0; i < 8 ; i ++){
+  18   3              LED8 |= (1 << i);
+  19   3              Delay(200);
+  20   3            }
+  21   2            for(i = 0; i < 10; i++){
+  22   3              LED8 = 0xaa;
+  23   3              Delay(200);
+  24   3              LED8 = 0x55;
+  25   3              Delay(200);
+  26   3            }
+  27   2            for(i = 0; i < 9 ; i++){
+  28   3              LED8 = (0x07 << i);
+  29   3              Delay(200);
+  30   3            
+  31   3            }
+  32   2        }
+  33   1      }
+  34          
+  35          void EX0_ISR (void) interrupt 0
+  36          {
+  37   1        P1_0 = 0;
+  38   1        P0_0 = 0;
+  39   1        Delay(5000);
+  40   1        P1_0 = 1;
+  41   1        P0_0 = 1;
+  42   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    195    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

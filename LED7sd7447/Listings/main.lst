@@ -1,0 +1,51 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              09/15/2023 11:32:53 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "main.h"
+   2          #include "../lib/delay.h"
+   3          
+   4          
+   5          #define GIO P2
+   6          #define PHUT P3
+   7          #define GIAY P1
+   8          
+   9          
+  10          void main(){
+  11   1        unsigned int dem = 0;
+  12   1        unsigned char  tram,chuc ,dv;
+  13   1          
+  14   1        while(1){
+  15   2            dv = dem % 10;
+  16   2            chuc = (dem%100)/10;
+  17   2            tram = dem /100;
+  18   2            
+  19   2            GIAY = dv;
+  20   2            PHUT = chuc;
+  21   2            GIO = tram;
+  22   2            Delay(50);
+  23   2            dem++;
+  24   2            dem%= 1000;
+  25   2          
+  26   2        }
+  27   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     97    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

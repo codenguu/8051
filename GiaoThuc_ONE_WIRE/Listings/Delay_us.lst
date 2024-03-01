@@ -1,0 +1,43 @@
+C51 COMPILER V9.60.0.0   DELAY_US                                                          10/11/2023 16:04:06 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE DELAY_US
+OBJECT MODULE PLACED IN .\Objects\Delay_us.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\Lib\Delay_us.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Li
+                    -stings\Delay_us.lst) TABS(2) OBJECT(.\Objects\Delay_us.obj)
+
+line level    source
+
+   1          #include "main.h"
+   2          #include "../lib/Delay_us.h"
+   3          
+   4          void Delay_us(unsigned int us){
+   5   1        //Timer1 mode 1
+   6   1        TMOD &= 0x0F;
+   7   1        TMOD |= 0x10;
+   8   1        
+   9   1        TH1 = (65536 - us) >> 8;
+  10   1        TL1 = (65536 - us) & 0x00FF;
+  11   1        
+  12   1        TR1 = 1;
+  13   1        
+  14   1        while(TF1 == 0);
+  15   1        
+  16   1        TR1 = 0;
+  17   1        TF1 = 0;
+  18   1      
+  19   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     61    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,4 @@
+".\Objects\main.obj" 
+TO ".\Objects\Mo_rong_bo_nho" 
+
+PRINT(".\Listings\Mo_rong_bo_nho.map")

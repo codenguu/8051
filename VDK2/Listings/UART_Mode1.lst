@@ -1,0 +1,94 @@
+C51 COMPILER V9.60.0.0   UART_MODE1                                                        09/25/2023 00:12:43 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE UART_MODE1
+OBJECT MODULE PLACED IN .\Objects\UART_Mode1.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\Lib\UART_Mode1.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\
+                    -Listings\UART_Mode1.lst) TABS(2) OBJECT(.\Objects\UART_Mode1.obj)
+
+line level    source
+
+   1          #include "main.h"
+   2          #include "delay.h"
+   3          #include "UART_Mode1.h"
+   4          
+   5          #if (FREQ_OSC != 11059200)
+                #error " Chi ho tro tan so thach anh 11059200"
+              #endif
+   8          
+   9          //khoi tao che do uart mode 1
+  10          void UART_init(){
+  11   1        //KHAI BAO CHE DO UART MODE 1 , 8 BIT VOI CHE DO DAM BAO
+  12   1        SM0 = 0;
+  13   1        SM1 = 1;
+  14   1        
+  15   1        TMOD &= 0x0F;// giu lai cac bit cuoi cua byte TMOD
+  16   1      
+  17   1        TMOD |= 0x20 ; // 0010 xxxx - Timer1 hoat dong o che do 8 bit tu dong nap lai
+  18   1        #if(BAUD_RATE == 9600)// Toc do baud 9600
+  19   1          TH1 = 0xFD;
+  20   1        
+  21   1        #elif(BAUD_RATE == 2400)
+                  TH1 = 0xF4; 
+                #elif(BAUD_RATE == 1200)
+                  TH1 = 0xE8;
+                #elif(BAUD_RATE == 19200)
+                  TH1 = 0xE8;
+                  PCON =| 0x80;
+                #else 
+                  #error "Ch? ho tro cho Baud rate la 1200 , 2400 , 9600 , 19200"
+                #endif
+  31   1        TR1 = 1; // bit nay dieu khien hoat dong cua timer1
+  32   1        
+  33   1        TI = 1;   //san sang gui du lieu
+  34   1        
+  35   1        REN = 1;// Khi REN = 1, bo thu là ho?t d?ng và s?n sàng nh?n d? li?u.
+  36   1                //Khi REN = 0, bo thu không hoat dong.
+  37   1      }
+  38          
+  39          //San sang doc du lieu
+  40          char UART_Ready(){
+  41   1        
+  42   1        return RI;// Bit này duoc set khi bo thu dã nhann du lieu và nó san sàng de doc. 
+  43   1                  //Nó duoc clear khi ban doc du lieu tu thanh ghi SBUF.
+  44   1      }
+  45          
+  46          //Doc tin du lieu tu SBUFF
+  47          char UART_Read(){
+  48   1        RI = 0;//
+  49   1        return SBUF ;
+  50   1      }
+  51          
+  52          
+  53          void UART_Write(char c){
+  54   1        
+C51 COMPILER V9.60.0.0   UART_MODE1                                                        09/25/2023 00:12:43 PAGE 2   
+
+  55   1          while(TI == 0); //cho den khi nao truyen du lieu xong thi TI duoc set = 1;
+  56   1          TI = 0;         //Sau do ta clear no de gui ma moi vao
+  57   1          SBUF = c ; // Luu ki tu 'A' vao bo dem
+  58   1        
+  59   1      }
+  60          
+  61          //chuoi ki tu
+  62          void UART_Write_text(char *str){
+  63   1        unsigned char i = 0;
+  64   1        while(str[i] != 0){
+  65   2          UART_Write(str[i]);
+  66   2          i++;
+  67   2        }
+  68   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     76    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

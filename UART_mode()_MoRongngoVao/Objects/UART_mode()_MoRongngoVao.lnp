@@ -1,0 +1,4 @@
+".\Objects\main.obj",
+".\Objects\Delay.obj" 
+TO ".\Objects\UART_mode()_MoRongngoVao" 
+PRINT(".\Listings\UART_mode()_MoRongngoVao.m51") RAMSIZE(256) 

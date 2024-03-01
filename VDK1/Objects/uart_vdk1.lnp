@@ -1,0 +1,6 @@
+".\Objects\main.obj",
+".\Objects\UART_Mode1.obj",
+".\Objects\Delay.obj" 
+TO ".\Objects\uart_vdk1" 
+
+PRINT(".\Listings\uart_vdk1.map") ru 

@@ -1,0 +1,110 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              08/16/2023 01:52:34 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REG52.H>
+   2          
+   3          
+   4          // dat ten cho chan p0.0 la LED_LED PIN
+   5          
+   6          void Delay(unsigned int t)
+   7          {
+   8   1          unsigned int i , j ;
+   9   1          for (i = 0 ; i < t ; i++)
+  10   1          {
+  11   2              for(j = 0; j < 123 ; j++){
+  12   3                  //
+  13   3              }
+  14   2          }
+  15   1      }
+  16          
+  17          void nhayled(){
+  18   1        int n = 5;
+  19   1        while(n){
+  20   2          P0 = 0x55;
+  21   2          Delay(100);
+  22   2          P0 = ~P0 ;
+  23   2          Delay(100);
+  24   2          n--;
+  25   2        }
+  26   1      }
+  27          
+  28          void nhapnhay(){
+  29   1        int n = 5;
+  30   1        while(n){
+  31   2          P0 = 0x00;
+  32   2          Delay(100);
+  33   2          P0 = ~P0;
+  34   2          Delay(100);
+  35   2          P0 = ~P0;
+  36   2          Delay(100);
+  37   2          P0 = ~P0;
+  38   2          Delay(100);
+  39   2          n--;
+  40   2        }
+  41   1      }
+  42          
+  43          void Batdan(int j, int i){
+  44   1        for(i = 0 ; i < 10 ; i++){
+  45   2          for(j = 0; j < 8; j++){
+  46   3            P0 = 0x00;
+  47   3            P0|= (0xA0 >> j);
+  48   3            if(j == 6) {
+  49   4              P0_7 = !P0_7;
+  50   4            }
+  51   3            if(j == 7) {
+  52   4              P0_6 = !P0_6;
+  53   4            }
+  54   3            Delay(100);
+C51 COMPILER V9.60.0.0   MAIN                                                              08/16/2023 01:52:34 PAGE 2   
+
+  55   3          }
+  56   2        }
+  57   1      }
+  58          void vidu(int n){
+  59   1        unsigned char i;
+  60   1        while(n){
+  61   2          P0 = 0x00;
+  62   2          for(i = 0 ; i < 9 ; i++){
+  63   3            Delay(70);
+  64   3            P0 |= (1 << i);
+  65   3      
+  66   3          }
+  67   2          P0 = 0x00;
+  68   2          for(i = 0 ; i < 9 ; i++){
+  69   3            
+  70   3            Delay(70);
+  71   3            P0 |= (0x80>> i);
+  72   3          }
+  73   2          n--;
+  74   2        }
+  75   1      }
+  76          void  main()
+  77          {
+  78   1        while(1){
+  79   2        nhayled();
+  80   2        nhapnhay();
+  81   2        Batdan(0 , 0);
+  82   2        vidu(10);
+  83   2        }
+  84   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    307    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

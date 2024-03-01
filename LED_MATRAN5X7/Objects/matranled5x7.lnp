@@ -1,0 +1,4 @@
+".\Objects\main.obj",
+".\Objects\Delay.obj" 
+TO ".\Objects\matranled5x7" 
+PRINT(".\Listings\matranled5x7.m51") RAMSIZE(256) 

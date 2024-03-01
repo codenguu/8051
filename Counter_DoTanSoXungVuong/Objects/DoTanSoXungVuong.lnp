@@ -1,0 +1,5 @@
+".\Objects\main.obj",
+".\Objects\Delay.obj",
+".\Objects\LCD16x2_cmd.obj" 
+TO ".\Objects\DoTanSoXungVuong" 
+PRINT(".\Listings\DoTanSoXungVuong.m51") RAMSIZE(256) 

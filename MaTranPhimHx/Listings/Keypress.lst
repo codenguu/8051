@@ -1,0 +1,63 @@
+C51 COMPILER V9.60.0.0   KEYPRESS                                                          09/15/2023 23:03:53 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE KEYPRESS
+OBJECT MODULE PLACED IN .\Objects\Keypress.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\Lib\Keypress.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Li
+                    -stings\Keypress.lst) TABS(2) OBJECT(.\Objects\Keypress.obj)
+
+line level    source
+
+   1          #include "main.h"
+   2          #include "../lib/Keypress.h"
+   3          
+   4          
+   5          unsigned char KeyPress(){
+   6   1          unsigned char key = 0;
+   7   1        //Kiem tra hang 1; 
+   8   1        row1 = 0;
+   9   1        if(col1 == 0) key = 1;
+  10   1        if(col2 == 0) key = 2;
+  11   1        if(col3 == 0) key = 3;
+  12   1        if(col4 == 0) key = 4;
+  13   1        row1 = 1;
+  14   1        //kiem tra hang 2;
+  15   1        row2 = 0;
+  16   1        if(col1 == 0) key = 5;
+  17   1        if(col2 == 0) key = 6;
+  18   1        if(col3 == 0) key = 7;
+  19   1        if(col4 == 0) key = 8;
+  20   1        row2 = 1;
+  21   1        
+  22   1        //Kiem tra hang 3; 
+  23   1        row3 = 0;
+  24   1        if(col1 == 0) key = 9;
+  25   1        if(col2 == 0) key = 10;
+  26   1        if(col3 == 0) key = 11;
+  27   1        if(col4 == 0) key =12;
+  28   1        row3 =1;
+  29   1        //kiem tra hang 4;
+  30   1        row4 = 0;
+  31   1        if(col1 == 0) key = 13;
+  32   1        if(col2 == 0) key = 14;
+  33   1        if(col3 == 0) key = 15;
+  34   1        if(col4 == 0) key = 16;
+  35   1        row4 = 1;
+  36   1        
+  37   1        return key;
+  38   1        
+  39   1        }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     98    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
